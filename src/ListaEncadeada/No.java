@@ -1,5 +1,7 @@
 package ListaEncadeada;
 
+import java.util.Objects;
+
 public class No<T> {
 
 
@@ -32,6 +34,17 @@ public class No<T> {
         this.proximo = proximo;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        No<?> no = (No<?>) o;
+        return Objects.equals(elemento, no.elemento) && Objects.equals(proximo, no.proximo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(elemento, proximo);
+    }
 
     @Override
     public String toString() {

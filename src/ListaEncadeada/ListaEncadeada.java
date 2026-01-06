@@ -34,6 +34,37 @@ public class ListaEncadeada<T> {
 
     }
 
+    private No<T> buscaPorPosicao(int posicao) {
+        if (!(posicao > 0 && posicao <= this.tamanho)) {
+            throw new IllegalArgumentException("Posicao não existe");
+        }
+
+        No<T> noAtual = this.inicio;
+
+        for (int i = 0; i < posicao; i++) {
+            noAtual = noAtual.getProximo();
+        }
+
+        return noAtual;
+    }
+
+    public T buscar(int posicao) {
+        return this.buscaPorPosicao(posicao).getElemento();
+    }
+
+    public int buscaPosicao(T elemento) {
+        No<T> atual = this.inicio;
+        int posicao = 0;
+        while (atual.getProximo() != null) {
+            if (atual.getElemento().equals(elemento)) {
+                return posicao;
+            }
+            posicao++;
+            atual = atual.getProximo();
+        }
+        return -1;
+    }
+
     public int getTamanho() {
         return tamanho;
     }

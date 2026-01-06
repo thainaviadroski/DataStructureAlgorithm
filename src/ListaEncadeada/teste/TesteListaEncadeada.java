@@ -15,8 +15,11 @@ public class TesteListaEncadeada {
         System.out.println(list);
         System.out.println("Tamanho: " + list.getTamanho());
 
-        list.limpar();
-        System.out.println(list);
-        System.out.println("Tamanho: " + list.getTamanho());
+        //list.limpar();
+//        System.out.println(list);
+//        System.out.println("Tamanho: " + list.getTamanho());
+
+        System.out.println(list.buscar(2));
+        System.out.println(list.buscaPosicao(18));
     }
 }
